@@ -10,14 +10,13 @@ namespace Torpedo.Model
     internal class Player
     {
         private string _name;
-        public const int NumberOfShips = 5;
         public Ship[] Ships;        
         public Board Board;
 
-        public Player(string name) {
+        public Player(string name, int numberOfShips, int boardSize) {
             _name = name;
-            Board = new Board();
-            Ships= new Ship[NumberOfShips];
+            Board = new Board(boardSize);
+            Ships= new Ship[numberOfShips];
         }
     }
 }

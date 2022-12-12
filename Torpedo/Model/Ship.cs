@@ -10,18 +10,17 @@ namespace Torpedo.Model
 
     internal class Ship
     {
-        private int _length;
-        private Alignment _alignment;
-        private Coordinate _startPosition;
-
+        public int ShipSize { get; set; }
+        public Alignment ShipAlignment { get; set; }
+        public Coordinate StartPosition { get; set; }
         public bool Status { get; private set; } //false if sunk
         public List<Coordinate> Positions { get; private set; }
 
 
         public Ship(int length, Alignment alignment)
         {
-            _length= length;
-            _alignment = alignment;
+            ShipSize= length;
+            ShipAlignment = alignment;
             Status = true;
         }
     }

@@ -9,14 +9,12 @@ using System.Windows.Documents;
 namespace Torpedo.Model
 {
     //Represents a Board for the game.
-    internal class Board
-    {
-        public const int BoardSize = 10;
+    internal class Board{
         public Coordinate[,] GameBoard { get; private set; }
 
-        public Board()
+        public Board(int boardSize)
         {
-             GameBoard = new Coordinate[BoardSize, BoardSize];
+             GameBoard = new Coordinate[boardSize, boardSize];
         }
     }
 }
