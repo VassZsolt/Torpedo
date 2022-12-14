@@ -13,7 +13,7 @@ namespace Torpedo.Model
         public int ShipSize { get; set; }
         public Alignment ShipAlignment { get; set; }
         public Coordinate StartPosition { get; set; }
-        public bool Status { get; private set; } //false if sunk
+        public bool Status { get;  set; } //false if sunk
         public List<Coordinate> Positions { get; private set; }
 
 
