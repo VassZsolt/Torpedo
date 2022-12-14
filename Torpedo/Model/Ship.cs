@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Torpedo.Model
+namespace NationalInstruments.Torpedo.Model
 {
-    //Represents a general ship object.
-
+    /// <summary>
+    /// Represents a general ship object.
+    /// </summary>
     internal class Ship
     {
         public int ShipSize { get; set; }
         public Alignment ShipAlignment { get; set; }
-        public Coordinate StartPosition { get; set; }
-        public bool Status { get;  set; } //false if sunk
-        public List<Coordinate> Positions { get; private set; }
 
+        public Coordinate StartPosition { get; set; } = new Coordinate(Column.A, -1);
+        public bool Status { get; set; } // false if sunk
+        public List<Coordinate> Positions { get; private set; } = new List<Coordinate>();
 
-        public Ship(int length, Alignment alignment)
+        public Ship(int length, Alignment alignment, Coordinate startPosition)
         {
-            ShipSize= length;
+            ShipSize = length;
             ShipAlignment = alignment;
             Status = true;
+            StartPosition = startPosition;
         }
     }
 }

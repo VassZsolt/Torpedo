@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Torpedo.Model
+﻿namespace NationalInstruments.Torpedo.Model
 {
-    //In classic Torpedo there are two possible alignment for the ships.
+    /// <summary>
+    /// In classic Torpedo there are two possible alignment for the ships.
+    /// </summary>
     public enum Alignment
     {
         Horizontal, Vertical

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Torpedo.ViewModel
+﻿namespace NationalInstruments.Torpedo.ViewModel
 {
-    //This enum represent the game mode.
-    internal enum GameMode{
+    /// <summary>
+    /// This enum represent the game mode.
+    /// </summary>
+    internal enum GameMode
+    {
         SinglePlayerMode, TwoPlayerMode
     }
 }

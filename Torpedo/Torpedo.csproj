@@ -5,10 +5,16 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <RootNamespace>NationalInstruments.Torpedo</RootNamespace>
+    <AssemblyName>NationalInstruments.Torpedo</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="View\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NI.CSharp.Analyzers" Version="2.0.10" />
   </ItemGroup>
 
   <ItemGroup>
