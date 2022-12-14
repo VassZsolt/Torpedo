@@ -8,26 +8,27 @@ using Torpedo.Model;
 
 namespace Torpedo.ViewModel
 {
+    //This class responsible for creating players and their ships.
     internal class InitGame
     {
         private const int _numberOfShips = 5;
         private const int _sizeOfBoard = 10;
         private Random _random= new Random();
         
-        private Player _player1;
-        private Player _player2;
-        private GameMode _gameMode;
+        public Player Player1;
+        public Player Player2;
+        public GameMode GameMode;
 
         public InitGame (GameMode gameMode) {
-            _gameMode= gameMode;
+            GameMode= gameMode;
             createPlayers();
             placeShips();
         }
         
         private void createPlayers() {
-            if (_gameMode==GameMode.TwoPlayerMode) {
-                _player1 = new Player(setPlayerName(),_numberOfShips, _sizeOfBoard);
-                _player2 = new Player(setPlayerName(), _numberOfShips, _sizeOfBoard);
+            if (GameMode==GameMode.TwoPlayerMode) {
+                Player1 = new Player(setPlayerName(),_numberOfShips, _sizeOfBoard);
+                Player2 = new Player(setPlayerName(), _numberOfShips, _sizeOfBoard);
             }
             else {
                 _random.Next(2); //véletlenszerűen kiválasztjuk ki kezdjen..
@@ -41,9 +42,9 @@ namespace Torpedo.ViewModel
         }
 
         private void placeShips() {
-            if (_gameMode == GameMode.TwoPlayerMode) {
-                shipPlacement(_player1);
-                shipPlacement(_player2);
+            if (GameMode == GameMode.TwoPlayerMode) {
+                shipPlacement(Player1);
+                shipPlacement(Player2);
             }
             else {
 
@@ -54,11 +55,11 @@ namespace Torpedo.ViewModel
         private void shipPlacement(Player player) {
             for (int i=0; i<_numberOfShips; i++) {
                 player.Ships[i].ShipSize = i + 1;
-                while (!isPossiblePlacement(player.Ships[i].ShipAlignment, player.Ships[i].StartPosition, player.Ships[i].ShipSize)) {
+                do {
                     player.Ships[i].ShipAlignment = setShipAlignment();
                     player.Ships[i].StartPosition = setShipPosition();
-
-                };
+                }
+                while (!isPossiblePlacement(player.Ships[i].ShipAlignment, player.Ships[i].StartPosition, player.Ships[i].ShipSize));
                 generateShipPositions(player.Ships[i]);
             }
         }
