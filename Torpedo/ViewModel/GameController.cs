@@ -50,7 +50,7 @@ namespace Torpedo.ViewModel
 
         private void shoot(Player player, Coordinate target) {
             player.Shoots.Add(target);
-            if (isHit(player, target)) {
+            while (isHit(player, target)) {
                 makeShoot(player);
             }
         }
