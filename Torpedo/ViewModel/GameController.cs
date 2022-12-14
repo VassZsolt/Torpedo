@@ -24,7 +24,7 @@ namespace Torpedo.ViewModel
         private void playGame() {
             Player actualPlayer=_player2;
             while(!isGameOver(actualPlayer)){
-                nextPlayer(actualPlayer);
+                actualPlayer=nextPlayer(actualPlayer);
                 makeShoot(actualPlayer);
             };
         }
