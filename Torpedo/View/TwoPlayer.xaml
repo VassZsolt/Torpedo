@@ -1,0 +1,17 @@
+﻿<Window x:Class="NationalInstruments.Torpedo.View.TwoPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NationalInstruments.Torpedo.View"
+        mc:Ignorable="d"
+        Title="TwoPlayer" Height="450" Width="800">
+    <Grid>
+        <Label Content="Két játékos mód" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Name="firstPlayerName" HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap" Text="Első játékos:" VerticalAlignment="Top" Width="200"/>
+        <TextBox Name="secondPlayerName" HorizontalAlignment="Center" Margin="0,170,0,0" TextWrapping="Wrap" Text="Második játékos:" VerticalAlignment="Top" Width="200"/>
+        <Button Name="startButton" Content="Kezdés" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top"/>
+        <Button Name="backButton" Content="Vissza" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Click="backButton_Click"/>
+
+    </Grid>
+</Window>

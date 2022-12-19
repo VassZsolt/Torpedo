@@ -1,4 +1,5 @@
-﻿using NationalInstruments.Torpedo.ViewModel;
+﻿using NationalInstruments.Torpedo.View;
+using NationalInstruments.Torpedo.ViewModel;
 using System.Windows;
 
 namespace NationalInstruments.Torpedo
@@ -11,7 +12,26 @@ namespace NationalInstruments.Torpedo
         public MainWindow()
         {
             InitializeComponent();
-            GameController game = new GameController(GameMode.TwoPlayerMode);
+            //GameController game = new GameController(GameMode.TwoPlayerMode);
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void onePlayerModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var onePlayerWindow = new OnePlayer();
+            onePlayerWindow.Show();
+            Close();
+        }
+
+        private void twoPlayerModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var twoPlayerWindow = new TwoPlayer();
+            twoPlayerWindow.Show();
+            Close();
         }
     }
 }

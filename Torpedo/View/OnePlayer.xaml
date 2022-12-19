@@ -1,0 +1,15 @@
+﻿<Window x:Class="NationalInstruments.Torpedo.View.OnePlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NationalInstruments.Torpedo.View"
+        mc:Ignorable="d"
+        Title="OnePlayer" Height="450" Width="800">
+    <Grid>
+        <Label Content="Egy játékos mód" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Name="playerName" HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap" Text="Név:" VerticalAlignment="Top" Width="120"/>
+        <Button Name="startButton" Content="Kezdés" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top"/>
+        <Button Name="backButton" Content="Vissza" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Click="backButton_Click"/>
+    </Grid>
+</Window>
