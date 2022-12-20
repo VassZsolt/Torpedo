@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a Coordinate object like A5 or C8.
     /// </summary>
-    public  class Coordinate
+    public class Coordinate
     {
         private Column _column; // A-J
         private int _row;

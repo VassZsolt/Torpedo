@@ -23,7 +23,7 @@ namespace NationalInstruments.Torpedo.Model
             Ships = new Ship[numberOfShips];
         }
 
-        public bool IsCorrectName([NotNull] string name)
+        public bool IsCorrectName(string name)
         {
             foreach (char item in _bannedChars)
             {

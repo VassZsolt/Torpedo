@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a column name like A or D.
     /// </summary>
-    internal enum Column // 10 Column
+    public enum Column // 10 Column
     {
         A, B, C, D, E, F, G, H, I, J
     }

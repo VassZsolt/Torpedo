@@ -1,5 +1,4 @@
 ﻿using NationalInstruments.Torpedo.View;
-using NationalInstruments.Torpedo.ViewModel;
 using System.Windows;
 
 namespace NationalInstruments.Torpedo
