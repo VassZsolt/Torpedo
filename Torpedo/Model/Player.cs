@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics.CodeAnalysis;
 
 namespace NationalInstruments.Torpedo.Model
 {
@@ -10,14 +12,39 @@ namespace NationalInstruments.Torpedo.Model
         private string _name;
         public Ship[] Ships;
         public Board Board;
-        public List<Coordinate> Shoots;
+        public List<Coordinate> Shoots = new List<Coordinate>();
 
-        public Player(string name, int numberOfShips, int boardSize)
+        private List<char> _bannedChars = new List<char>(new char[] { '!', '?', '_', '-', ':', ';', '#', ' ' });
+
+        public Player(int numberOfShips, int boardSize)
         {
-            _name = name;
+            _name = string.Empty;
             Board = new Board(boardSize);
             Ships = new Ship[numberOfShips];
-            Shoots = new List<Coordinate>();
+        }
+
+        public void SetName(string name)
+        {
+            if (IsCorrectName(name))
+            {
+                _name = name;
+            }
+        }
+
+        public string GetName()
+        {
+            return _name;
+        }
+        private bool IsCorrectName([NotNull] string name)
+        {
+            foreach (char item in _bannedChars)
+            {
+                if (name.Contains(char.ToString(item)))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
