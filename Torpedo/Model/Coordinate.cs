@@ -10,7 +10,7 @@
 
         public void SetColumn(Column column) => _column = column;
         public Column Column => _column;
-        public void SetRow(Column column) => _column = column;
+        public void SetRow(int row) => _row = row;
         public int Row => _row;
 
         public Coordinate(Column column, int row)
