@@ -15,6 +15,11 @@ namespace NationalInstruments.Torpedo.Model
 
         public Coordinate StartPosition { get; set; } = new Coordinate(Column.A, -1);
         public bool Status { get; set; } // false if sunk
-        public List<Coordinate> Positions { get => positions; set => positions = value; }
+        public List<Coordinate> Positions = new List<Coordinate>();
+
+        public Ship()
+        {
+
+        }
     }
 }

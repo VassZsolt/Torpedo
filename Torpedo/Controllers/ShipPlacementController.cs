@@ -39,7 +39,6 @@ namespace NationalInstruments.Torpedo.Controllers
             get
             {
                 List<Coordinate> positions = new List<Coordinate>();
-                positions.Add(_startPosition);
                 if (_alignment == Alignment.Horizontal)
                 {
                     for (int i = 0; i < SizeOfShip; i++)
