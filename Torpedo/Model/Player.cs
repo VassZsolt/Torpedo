@@ -10,7 +10,7 @@ namespace NationalInstruments.Torpedo.Model
     internal class Player
     {
         public string Name { get; set; }
-        public Ship[] Ships;
+        public List<Ship> Ships;
         public Board Board;
         public List<Coordinate> Shoots = new List<Coordinate>();
 
@@ -20,7 +20,7 @@ namespace NationalInstruments.Torpedo.Model
         {
             Name = string.Empty;
             Board = new Board(boardSize);
-            Ships = new Ship[numberOfShips];
+            Ships = new List<Ship>(5);
         }
 
         public bool IsCorrectName(string name)
