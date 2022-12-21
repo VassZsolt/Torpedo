@@ -21,15 +21,17 @@ namespace NationalInstruments.Torpedo
 
         private void onePlayerModeButton_Click(object sender, RoutedEventArgs e)
         {
-            var onePlayerWindow = new OnePlayer();
-            onePlayerWindow.Show();
+            var playerName = new PlayerName();
+            playerName.secondPlayerLabel.Visibility = Visibility.Hidden;
+            playerName.secondPlayerName.Visibility = Visibility.Hidden;
+            playerName.Show();
             Close();
         }
 
         private void twoPlayerModeButton_Click(object sender, RoutedEventArgs e)
         {
-            var twoPlayerWindow = new TwoPlayer();
-            twoPlayerWindow.Show();
+            var playerName = new PlayerName();
+            playerName.Show();
             Close();
         }
     }

@@ -1,0 +1,243 @@
+﻿<Window x:Class="NationalInstruments.Torpedo.View.GamePlay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NationalInstruments.Torpedo.View"
+        mc:Ignorable="d"
+        Title="GamePlay" Height="800" Width="1200">
+    <Grid>
+        <Grid Name="PlayerOneBoard" Width="500" Height="500" Margin="-600,70,0,0" >
+            <Button Name="A1"  HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick" />
+            <Button Name="B1" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C1" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D1" HorizontalAlignment="Left" Margin="150,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E1" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F1" HorizontalAlignment="Left" Margin="250,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G1" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H1" HorizontalAlignment="Left" Margin="350,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I1" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J1" HorizontalAlignment="Left" Margin="450,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="A2"  HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="B2" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C2" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D2" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E2" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F2" HorizontalAlignment="Left" Margin="250,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G2" HorizontalAlignment="Left" Margin="300,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H2" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I2" HorizontalAlignment="Left" Margin="400,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J2" HorizontalAlignment="Left" Margin="450,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="A3"  HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="B3" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C3" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D3" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E3" HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F3" HorizontalAlignment="Left" Margin="250,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G3" HorizontalAlignment="Left" Margin="300,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H3" HorizontalAlignment="Left" Margin="350,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I3" HorizontalAlignment="Left" Margin="400,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J3" HorizontalAlignment="Left" Margin="450,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="A4"  HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="B4" HorizontalAlignment="Left" Margin="50,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C4" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D4" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E4" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F4" HorizontalAlignment="Left" Margin="250,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G4" HorizontalAlignment="Left" Margin="300,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H4" HorizontalAlignment="Left" Margin="350,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I4" HorizontalAlignment="Left" Margin="400,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J4" HorizontalAlignment="Left" Margin="450,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="A5"  HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="B5" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C5" HorizontalAlignment="Left" Margin="100,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D5" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E5" HorizontalAlignment="Left" Margin="200,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F5" HorizontalAlignment="Left" Margin="250,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G5" HorizontalAlignment="Left" Margin="300,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H5" HorizontalAlignment="Left" Margin="350,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I5" HorizontalAlignment="Left" Margin="400,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J5" HorizontalAlignment="Left" Margin="450,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="A6"  HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="B6" HorizontalAlignment="Left" Margin="50,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C6" HorizontalAlignment="Left" Margin="100,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D6" HorizontalAlignment="Left" Margin="150,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E6" HorizontalAlignment="Left" Margin="200,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F6" HorizontalAlignment="Left" Margin="250,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G6" HorizontalAlignment="Left" Margin="300,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H6" HorizontalAlignment="Left" Margin="350,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I6" HorizontalAlignment="Left" Margin="400,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J6" HorizontalAlignment="Left" Margin="450,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="A7"  HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="B7" HorizontalAlignment="Left" Margin="50,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C7" HorizontalAlignment="Left" Margin="100,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D7" HorizontalAlignment="Left" Margin="150,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E7" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F7" HorizontalAlignment="Left" Margin="250,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G7" HorizontalAlignment="Left" Margin="300,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H7" HorizontalAlignment="Left" Margin="350,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I7" HorizontalAlignment="Left" Margin="400,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J7" HorizontalAlignment="Left" Margin="450,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="A8"  HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="B8" HorizontalAlignment="Left" Margin="50,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C8" HorizontalAlignment="Left" Margin="100,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D8" HorizontalAlignment="Left" Margin="150,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E8" HorizontalAlignment="Left" Margin="200,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F8" HorizontalAlignment="Left" Margin="250,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G8" HorizontalAlignment="Left" Margin="300,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H8" HorizontalAlignment="Left" Margin="350,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I8" HorizontalAlignment="Left" Margin="400,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J8" HorizontalAlignment="Left" Margin="450,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="A9"  HorizontalAlignment="Left" Margin="0,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="B9" HorizontalAlignment="Left" Margin="50,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C9" HorizontalAlignment="Left" Margin="100,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D9" HorizontalAlignment="Left" Margin="150,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E9" HorizontalAlignment="Left" Margin="200,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F9" HorizontalAlignment="Left" Margin="250,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G9" HorizontalAlignment="Left" Margin="300,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H9" HorizontalAlignment="Left" Margin="350,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I9" HorizontalAlignment="Left" Margin="400,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J9" HorizontalAlignment="Left" Margin="450,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="A10"  HorizontalAlignment="Left" Margin="0,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="B10" HorizontalAlignment="Left" Margin="50,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="C10" HorizontalAlignment="Left" Margin="100,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="D10" HorizontalAlignment="Left" Margin="150,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="E10" HorizontalAlignment="Left" Margin="200,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="F10" HorizontalAlignment="Left" Margin="250,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="G10" HorizontalAlignment="Left" Margin="300,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="H10" HorizontalAlignment="Left" Margin="350,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="I10" HorizontalAlignment="Left" Margin="400,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="J10" HorizontalAlignment="Left" Margin="450,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+        </Grid>
+
+        <Grid Name="EnemyBoard" Width="500" Height="500" Margin="600,70,0,0" >
+            <Button Name="EA1"  HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB1" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC1" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED1" HorizontalAlignment="Left" Margin="150,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE1" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF1" HorizontalAlignment="Left" Margin="250,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG1" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH1" HorizontalAlignment="Left" Margin="350,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI1" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ1" HorizontalAlignment="Left" Margin="450,0,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="EA2"  HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB2" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC2" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED2" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE2" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF2" HorizontalAlignment="Left" Margin="250,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG2" HorizontalAlignment="Left" Margin="300,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH2" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI2" HorizontalAlignment="Left" Margin="400,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ2" HorizontalAlignment="Left" Margin="450,50,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="EA3"  HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB3" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC3" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED3" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE3" HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF3" HorizontalAlignment="Left" Margin="250,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG3" HorizontalAlignment="Left" Margin="300,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH3" HorizontalAlignment="Left" Margin="350,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI3" HorizontalAlignment="Left" Margin="400,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ3" HorizontalAlignment="Left" Margin="450,100,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="EA4"  HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB4" HorizontalAlignment="Left" Margin="50,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC4" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED4" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE4" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF4" HorizontalAlignment="Left" Margin="250,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG4" HorizontalAlignment="Left" Margin="300,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH4" HorizontalAlignment="Left" Margin="350,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI4" HorizontalAlignment="Left" Margin="400,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ4" HorizontalAlignment="Left" Margin="450,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="EA5"  HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB5" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC5" HorizontalAlignment="Left" Margin="100,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED5" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE5" HorizontalAlignment="Left" Margin="200,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF5" HorizontalAlignment="Left" Margin="250,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG5" HorizontalAlignment="Left" Margin="300,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH5" HorizontalAlignment="Left" Margin="350,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI5" HorizontalAlignment="Left" Margin="400,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ5" HorizontalAlignment="Left" Margin="450,200,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="EA6"  HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB6" HorizontalAlignment="Left" Margin="50,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC6" HorizontalAlignment="Left" Margin="100,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED6" HorizontalAlignment="Left" Margin="150,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE6" HorizontalAlignment="Left" Margin="200,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF6" HorizontalAlignment="Left" Margin="250,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG6" HorizontalAlignment="Left" Margin="300,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH6" HorizontalAlignment="Left" Margin="350,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI6" HorizontalAlignment="Left" Margin="400,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ6" HorizontalAlignment="Left" Margin="450,250,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="EA7"  HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB7" HorizontalAlignment="Left" Margin="50,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC7" HorizontalAlignment="Left" Margin="100,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED7" HorizontalAlignment="Left" Margin="150,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE7" HorizontalAlignment="Left" Margin="200,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF7" HorizontalAlignment="Left" Margin="250,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG7" HorizontalAlignment="Left" Margin="300,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH7" HorizontalAlignment="Left" Margin="350,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI7" HorizontalAlignment="Left" Margin="400,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ7" HorizontalAlignment="Left" Margin="450,300,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="EA8"  HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB8" HorizontalAlignment="Left" Margin="50,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC8" HorizontalAlignment="Left" Margin="100,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED8" HorizontalAlignment="Left" Margin="150,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE8" HorizontalAlignment="Left" Margin="200,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF8" HorizontalAlignment="Left" Margin="250,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG8" HorizontalAlignment="Left" Margin="300,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH8" HorizontalAlignment="Left" Margin="350,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI8" HorizontalAlignment="Left" Margin="400,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ8" HorizontalAlignment="Left" Margin="450,350,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="EA9"  HorizontalAlignment="Left" Margin="0,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB9" HorizontalAlignment="Left" Margin="50,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC9" HorizontalAlignment="Left" Margin="100,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED9" HorizontalAlignment="Left" Margin="150,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE9" HorizontalAlignment="Left" Margin="200,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF9" HorizontalAlignment="Left" Margin="250,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG9" HorizontalAlignment="Left" Margin="300,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH9" HorizontalAlignment="Left" Margin="350,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI9" HorizontalAlignment="Left" Margin="400,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ9" HorizontalAlignment="Left" Margin="450,400,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+            <Button Name="EA10"  HorizontalAlignment="Left" Margin="0,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EB10" HorizontalAlignment="Left" Margin="50,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EC10" HorizontalAlignment="Left" Margin="100,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="ED10" HorizontalAlignment="Left" Margin="150,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EE10" HorizontalAlignment="Left" Margin="200,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EF10" HorizontalAlignment="Left" Margin="250,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EG10" HorizontalAlignment="Left" Margin="300,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EH10" HorizontalAlignment="Left" Margin="350,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EI10" HorizontalAlignment="Left" Margin="400,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+            <Button Name="EJ10" HorizontalAlignment="Left" Margin="450,450,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OnClick"/>
+
+        </Grid>
+        <Label Name="title" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Name="fiveLong" Content="5 egység hosszú" HorizontalAlignment="Left" Margin="250,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
+        <Button Name="fourLong" Content="4 egység hosszú" HorizontalAlignment="Left" Margin="400,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
+        <Button Name="threeLong" Content="3 egység hosszú" HorizontalAlignment="Left" Margin="550,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
+        <Button Name="twoLong" Content="2 egység hosszú" HorizontalAlignment="Left" Margin="720,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
+        <Button Name="oneLong" Content="1 egység hosszú" HorizontalAlignment="Left" Margin="870,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
+        <Button Name="alignmentButton" Content="Horizontális" HorizontalAlignment="Left" Margin="545,100,0,0" VerticalAlignment="Top" Width="100" Click="alignmentChange"/>
+    </Grid>
+</Window>
