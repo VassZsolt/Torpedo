@@ -3,7 +3,7 @@
     /// <summary>
     /// This enum represent the game mode.
     /// </summary>
-    internal enum GameMode
+    public enum GameMode
     {
         SinglePlayerMode, TwoPlayerMode
     }
