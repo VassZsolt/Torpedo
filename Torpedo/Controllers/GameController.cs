@@ -62,15 +62,6 @@ namespace NationalInstruments.Torpedo.ViewModel
             }
         }
 
-        private void PlayGame()
-        {
-            Player actualPlayer = Firstplayer;
-            while (!IsGameOver(actualPlayer))
-            {
-                MakeShoot(actualPlayer);
-                actualPlayer = NextPlayer(actualPlayer);
-            }
-        }
 
         private Player NextPlayer(Player player)
         {
@@ -155,7 +146,6 @@ namespace NationalInstruments.Torpedo.ViewModel
                         }
                     }
                 }
-                
             }
             return false;
         }
@@ -201,39 +191,39 @@ namespace NationalInstruments.Torpedo.ViewModel
         public Coordinate GetCoordinate(string buttonName)
         {
             Column column;
-            if (buttonName.Substring(0, 1) == "A")
+            if (buttonName.Substring(1, 1) == "A")
             {
                 column = Column.A;
             }
-            else if (buttonName.Substring(0, 1) == "B")
+            else if (buttonName.Substring(1, 1) == "B")
             {
                 column = Column.B;
             }
-            else if (buttonName.Substring(0, 1) == "C")
+            else if (buttonName.Substring(1, 1) == "C")
             {
                 column = Column.C;
             }
-            else if (buttonName.Substring(0, 1) == "D")
+            else if (buttonName.Substring(1, 1) == "D")
             {
                 column = Column.D;
             }
-            else if (buttonName.Substring(0, 1) == "E")
+            else if (buttonName.Substring(1, 1) == "E")
             {
                 column = Column.E;
             }
-            else if (buttonName.Substring(0, 1) == "F")
+            else if (buttonName.Substring(1, 1) == "F")
             {
                 column = Column.F;
             }
-            else if (buttonName.Substring(0, 1) == "G")
+            else if (buttonName.Substring(1, 1) == "G")
             {
                 column = Column.G;
             }
-            else if (buttonName.Substring(0, 1) == "H")
+            else if (buttonName.Substring(1, 1) == "H")
             {
                 column = Column.H;
             }
-            else if (buttonName.Substring(0, 1) == "I")
+            else if (buttonName.Substring(1, 1) == "I")
             {
                 column = Column.I;
             }
@@ -241,7 +231,7 @@ namespace NationalInstruments.Torpedo.ViewModel
             {
                 column = Column.J;
             }
-            string row = buttonName.Substring(1);
+            string row = buttonName.Substring(2);
             return new Coordinate(column, row: Convert.ToInt32(row));
         }
     }
