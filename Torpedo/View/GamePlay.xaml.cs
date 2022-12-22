@@ -66,7 +66,7 @@ namespace NationalInstruments.Torpedo.View
                     }
                 }
             }
-            
+
             Player actualPlayer = _controller.Firstplayer;
             while (!IsGameOver(actualPlayer))
             {
