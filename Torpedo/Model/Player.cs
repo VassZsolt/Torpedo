@@ -13,7 +13,8 @@ namespace NationalInstruments.Torpedo.Model
         public List<Ship> Ships;
         public Board Board;
         public List<Coordinate> Shoots = new List<Coordinate>();
-
+        public int HitCount = 0;
+        public int NumberOfDeadShips = 0;
         private List<char> _bannedChars = new List<char>(new char[] { '!', '?', '_', '-', ':', ';', '#', ' ' });
 
         public Player(int numberOfShips, int boardSize)

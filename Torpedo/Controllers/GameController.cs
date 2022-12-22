@@ -90,6 +90,7 @@ namespace NationalInstruments.Torpedo.ViewModel
                         if (ship.Positions.Count == 0)
                         {
                             ship.Status = false;
+                            enemy.NumberOfDeadShips++;
                         }
                         return true;
                     }
