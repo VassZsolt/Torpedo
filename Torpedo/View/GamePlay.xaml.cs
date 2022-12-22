@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Numerics;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using NationalInstruments.Torpedo.Model;
@@ -65,6 +66,13 @@ namespace NationalInstruments.Torpedo.View
                     }
                 }
             }
+            
+            Player actualPlayer = _controller.Firstplayer;
+            while (!IsGameOver(actualPlayer))
+            {
+                MakeShoot(actualPlayer);
+                actualPlayer = NextPlayer(actualPlayer);
+            }
 
         }
 
@@ -107,8 +115,34 @@ namespace NationalInstruments.Torpedo.View
                 EnemyBoard.Visibility = Visibility.Visible;
                 PlayerOneBoard.Margin = new Thickness(-600, 70, 0, 0);
                 _isGameScreenChanged = true;
+                oneLong.Visibility = Visibility.Hidden;
+                twoLong.Visibility = Visibility.Hidden;
+                threeLong.Visibility = Visibility.Hidden;
+                fourLong.Visibility = Visibility.Hidden;
+                fiveLong.Visibility = Visibility.Hidden;
+                alignmentButton.Visibility = Visibility.Hidden;
+
+                title.Content = "Te következel " + _controller.Firstplayer.Name + "!";
+                DisableBoard(PlayerOneBoard);
             }
         }
+
+        private void DisableBoard(Grid grid)
+        {
+            foreach (Button button in grid.Children)
+            {
+                button.IsEnabled = false;
+            }
+        }
+
+        private void ActivateBoard(Grid grid)
+        {
+            foreach (Button button in grid.Children)
+            {
+                button.IsEnabled = false;
+            }
+        }
+
 
         private void SetSize(object sender, RoutedEventArgs e)
         {
@@ -135,7 +169,7 @@ namespace NationalInstruments.Torpedo.View
             }
         }
 
-        private void alignmentChange(object sender, RoutedEventArgs e)
+        private void AlignmentChange(object sender, RoutedEventArgs e)
         {
             if (_ship.ShipAlignment == Alignment.Horizontal)
             {
