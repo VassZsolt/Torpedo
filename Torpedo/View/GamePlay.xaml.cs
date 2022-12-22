@@ -1,9 +1,8 @@
-﻿using NationalInstruments.Torpedo.Model;
-using NationalInstruments.Torpedo.ViewModel;
-using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using NationalInstruments.Torpedo.Model;
+using NationalInstruments.Torpedo.ViewModel;
 
 namespace NationalInstruments.Torpedo.View
 {
@@ -12,62 +11,108 @@ namespace NationalInstruments.Torpedo.View
     /// </summary>
     public partial class GamePlay : Window
     {
-        GameController controller;
-        string clickedButtonName = string.Empty;
+        private GameController _controller;
+        private GameMode _gameMode;
+        private string _clickedButtonName = string.Empty;
         private Ship _ship = new Ship();
         private Coordinate _coordinate;
-        private int numberOfClick = 0;
+        private bool _isFirstPlayerShipsPlanted = false;
+        private bool _isSecondPlayerShipsPlanted = false;
+        private bool _isGameScreenChanged = false;
         public GamePlay(GameMode gameMode, string playerOneName, string? playerTwoName)
         {
             InitializeComponent();
-            controller = new GameController(gameMode, playerOneName, playerTwoName);
-            ShipPlacement();
+            _controller = new GameController(gameMode, playerOneName, playerTwoName);
+            _gameMode = gameMode;
+            if (!_isFirstPlayerShipsPlanted)
+            {
+                ShipPlacement(_controller.Firstplayer);
+            }
         }
 
         private void OnClick(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            clickedButtonName = button.Name;
-
-            _coordinate = controller.GetCoordinate(clickedButtonName);
-            if (numberOfClick < 5)
+            _clickedButtonName = button.Name;
+            _coordinate = _controller.GetCoordinate(_clickedButtonName);
+            if (!_isFirstPlayerShipsPlanted)
             {
-                controller.PlaceShip(_ship.ShipSize, _ship.ShipAlignment, _coordinate, controller.Firstplayer);
+                if (_controller.Firstplayer.Ships.Count < 5)
+                {
+                    _controller.PlaceShip(_ship.ShipSize, _ship.ShipAlignment, _coordinate, _controller.Firstplayer);
+                    DrawShips(_controller.Firstplayer);
+                }
+                if (_controller.Firstplayer.Ships.Count == 5)
+                {
+                    _isFirstPlayerShipsPlanted = true;
+                    ShipPlacement(_controller.SecondPlayer);
+                    return;
+                }
             }
-            if(numberOfClick<10 && numberOfClick>4)
+            if (!_isSecondPlayerShipsPlanted && _isFirstPlayerShipsPlanted)
             {
-                controller.PlaceShip(_ship.ShipSize, _ship.ShipAlignment, _coordinate, controller.SecondPlayer);
+                if (_gameMode == GameMode.TwoPlayerMode)
+                {
+                    if (_controller.SecondPlayer.Ships.Count < 5)
+                    {
+                        _controller.PlaceShip(_ship.ShipSize, _ship.ShipAlignment, _coordinate, _controller.SecondPlayer);
+                        DrawShips(_controller.SecondPlayer);
+                    }
+                    if (_controller.SecondPlayer.Ships.Count == 5)
+                    {
+                        _isSecondPlayerShipsPlanted = true;
+                        PlayGame();
+                    }
+                }
             }
 
-            numberOfClick++;
-            drawShips(controller.Firstplayer);
         }
 
-        private void drawShips(Player player)
+        private void DrawShips(Player player)
         {
-            foreach(Button button in PlayerOneBoard.Children)
+            foreach (Button button in PlayerOneBoard.Children)
             {
                 foreach (Ship ship in player.Ships)
                 {
                     foreach (Coordinate coordinate in ship.Positions)
-                    { 
-                        if(button.Name==coordinate.ToString())
+                    {
+                        if (button.Name == coordinate.ToString())
                         { button.Background = new SolidColorBrush(Colors.Green); }
                     }
                 }
             }
         }
-        private void ShipPlacement()
+
+        private void HideShips(Grid grid)
         {
+            foreach (Button button in grid.Children)
+            {
+                button.Background = null;
+            }
+        }
+
+        private void ShipPlacement(Player player)
+        {
+            HideShips(PlayerOneBoard);
             EnemyBoard.Visibility = Visibility.Hidden;
             PlayerOneBoard.Margin = new Thickness(0, 0, 0, 0);
-            title.Content = "Kérlek " + controller.Firstplayer.Name + "  rakd le a hajókat!";
+            title.Content = "Kérlek " + player.Name + "  rakd le a hajókat!";
+        }
+        private void PlayGame()
+        {
+            if (!_isGameScreenChanged)
+            {
+                HideShips(PlayerOneBoard);
+                HideShips(EnemyBoard);
+                EnemyBoard.Visibility = Visibility.Visible;
+                PlayerOneBoard.Margin = new Thickness(-600, 70, 0, 0);
+                _isGameScreenChanged = true;
+            }
         }
 
         private void SetSize(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            _ship.ShipAlignment = Alignment.Horizontal;
             if (button.Name == "fiveLong")
             {
                 _ship.ShipSize = 5;

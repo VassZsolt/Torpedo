@@ -30,7 +30,7 @@ namespace NationalInstruments.Torpedo.Controllers
 
         public bool IsPossiblePlacement()
         {
-            return _alignment == Alignment.Horizontal && (int)_startPosition.Column + SizeOfShip - 1 <= _sizeOfBoard ||
+            return _alignment == Alignment.Horizontal && (int)_startPosition.Column + SizeOfShip - 1 < _sizeOfBoard ||
                         _alignment == Alignment.Vertical && _startPosition.Row + SizeOfShip - 1 <= _sizeOfBoard;
         }
 

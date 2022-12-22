@@ -2,6 +2,7 @@
 using NationalInstruments.Torpedo.Controllers;
 using System.Collections.Generic;
 using NationalInstruments.Torpedo.Model;
+using System.Linq;
 
 namespace NationalInstruments.Torpedo.ViewModel
 {
@@ -139,6 +140,38 @@ namespace NationalInstruments.Torpedo.ViewModel
             }
             return true;
         }
+
+        private bool IsAlreadyUsed(Player player, List<Coordinate> coordinates)
+        {
+            foreach (Ship ship in player.Ships)
+            {
+                foreach (Coordinate shipCoordinate in ship.Positions)
+                {
+                    foreach (Coordinate coordinate in coordinates)
+                    {
+                        if (shipCoordinate.Column == coordinate.Column && shipCoordinate.Row == coordinate.Row)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                
+            }
+            return false;
+        }
+
+        private bool IsAnUniqueSize(int shipSize, Player player)
+        {
+            foreach (Ship ship in player.Ships)
+            {
+                if (ship.ShipSize == shipSize)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public void PlaceShip(int shipSize, Alignment align, Coordinate startPosition, Player player)
         {
             _shipPlacementController.SizeOfShip = shipSize;
@@ -148,17 +181,20 @@ namespace NationalInstruments.Torpedo.ViewModel
             if (_shipPlacementController.IsPossiblePlacement())
             {
                 List<Coordinate> positions = _shipPlacementController.GenerateShipPositions;
-                Ship ship = new Ship();
-                ship.ShipSize = shipSize;
-                ship.ShipAlignment = align;
-                ship.StartPosition = startPosition;
-                foreach(Coordinate coordinate in positions)
+                if (!IsAlreadyUsed(player, positions) && IsAnUniqueSize(shipSize, player))
                 {
-                    ship.Positions.Add(coordinate);
-                }
-                ship.Status = true;
+                    Ship ship = new Ship();
+                    ship.ShipSize = shipSize;
+                    ship.ShipAlignment = align;
+                    ship.StartPosition = startPosition;
+                    foreach (Coordinate coordinate in positions)
+                    {
+                        ship.Positions.Add(coordinate);
+                    }
+                    ship.Status = true;
 
-                player.Ships.Add(ship);
+                    player.Ships.Add(ship);
+                }
             }
         }
 
