@@ -238,6 +238,15 @@
         <Button Name="threeLong" Content="3 egység hosszú" HorizontalAlignment="Left" Margin="550,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
         <Button Name="twoLong" Content="2 egység hosszú" HorizontalAlignment="Left" Margin="720,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
         <Button Name="oneLong" Content="1 egység hosszú" HorizontalAlignment="Left" Margin="870,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
-        <Button Name="alignmentButton" Content="Horizontális" HorizontalAlignment="Left" Margin="545,100,0,0" VerticalAlignment="Top" Width="100" Click="AlignmentChange"/>
+        <Button Name="alignmentButton" Content="Horizontális" HorizontalAlignment="Left" Margin="545,100,0,0" VerticalAlignment="Top" Width="100" Click="alignmentChange"/>
+        <Label Name="firstPlayerName" Content="Név" HorizontalAlignment="Left" Margin="55,140,0,0" VerticalAlignment="Top"/>
+        <Label Name="secondPlayerName" Content="Név2" HorizontalAlignment="Right" Margin="0,140,510,0" VerticalAlignment="Top"/>
+        <Label Name="roundCount"  HorizontalAlignment="Center" Margin="0,720,0,0" VerticalAlignment="Top"/>
+        <Label Name="livingShipPlayerOne"  HorizontalAlignment="Left" Margin="120,750,0,0" VerticalAlignment="Top"/>
+        <Label Name="hitPlayerOne"  HorizontalAlignment="Left" Margin="240,700,0,0" VerticalAlignment="Top"/>
+        <Label Name="deadShipPlayerOne"  HorizontalAlignment="Left" Margin="400,750,0,0" VerticalAlignment="Top"/>
+        <Label Name="livingShipPlayerTwo"  HorizontalAlignment="Left" Margin="720,750,0,0" VerticalAlignment="Top"/>
+        <Label Name="hitPlayerTwo"  HorizontalAlignment="Left" Margin="890,700,0,0" VerticalAlignment="Top"/>
+        <Label Name="deadShipPlayerTwo"  HorizontalAlignment="Left" Margin="1000,750,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
