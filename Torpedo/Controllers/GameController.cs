@@ -61,9 +61,7 @@ namespace NationalInstruments.Torpedo.ViewModel
                 Match.SetFirstPlayerName(_player2.Name);
             }
         }
-
-
-        private Player NextPlayer(Player player)
+        public Player NextPlayer(Player player)
         {
             if (player == Firstplayer)
             {
@@ -74,29 +72,7 @@ namespace NationalInstruments.Torpedo.ViewModel
                 return Firstplayer;
             }
         }
-        private void MakeShoot(Player actualPlayer)
-        {
-            /*
-            do
-            {
-                Coordinate target = SetTarget;
-                Shoot(actualPlayer, target);
-            }
-            while (!actualPlayer.Shoots.Contains(target));
-            */
-        }
-
-
-        private void Shoot(Player player, Coordinate target)
-        {
-            player.Shoots.Add(target);
-            while (IsHit(player, target))
-            {
-                MakeShoot(player);
-            }
-        }
-
-        private bool IsHit(Player player, Coordinate target)
+        public bool IsHit(Player player, Coordinate target)
         {
             Player enemy = NextPlayer(player);
             for (int i = 0; i < enemy.Ships.Count; i++)
@@ -106,21 +82,30 @@ namespace NationalInstruments.Torpedo.ViewModel
                 {
                     continue;
                 }
-                if (ship.Positions.Count == 0)
+                foreach (Coordinate coordinate in ship.Positions)
                 {
-                    ship.Status = false;
-                    continue;
+                    if (coordinate.Column == target.Column && coordinate.Row == target.Row)
+                    {
+                        ship.Positions.Remove(coordinate);
+                        if (ship.Positions.Count == 0)
+                        {
+                            ship.Status = false;
+                        }
+                        return true;
+                    }
                 }
+
+                /*
                 if (ship.Positions.Contains(target))
                 {
                     ship.Positions.Remove(target);
                     return true;
-                }
+                }*/
             }
             return false;
         }
 
-        private bool IsGameOver(Player player)
+        public bool IsGameOver(Player player)
         {
             for (int i = 0; i < player.Ships.Count; i++)
             {
@@ -164,6 +149,7 @@ namespace NationalInstruments.Torpedo.ViewModel
 
         public void PlaceShip(int shipSize, Alignment align, Coordinate startPosition, Player player)
         {
+            if (shipSize == 0) { return; }
             _shipPlacementController.SizeOfShip = shipSize;
             _shipPlacementController.SetAlignment(align);
             _shipPlacementController.SetStartPosition(startPosition);

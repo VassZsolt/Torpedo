@@ -50,7 +50,7 @@ namespace NationalInstruments.Torpedo.View
                     return;
                 }
             }
-            if (!_isSecondPlayerShipsPlanted && _isFirstPlayerShipsPlanted)
+            else if (!_isSecondPlayerShipsPlanted && _isFirstPlayerShipsPlanted)
             {
                 if (_gameMode == GameMode.TwoPlayerMode)
                 {
@@ -66,14 +66,18 @@ namespace NationalInstruments.Torpedo.View
                     }
                 }
             }
-            
-            Player actualPlayer = _controller.Firstplayer;
-            while (!IsGameOver(actualPlayer))
+            else
             {
-                MakeShoot(actualPlayer);
-                actualPlayer = NextPlayer(actualPlayer);
+                MakeShoot(_controller.Firstplayer);
             }
 
+            /*
+            Player actualPlayer = _controller.Firstplayer;
+            if (!_controller.IsGameOver(_controller.NextPlayer(actualPlayer)))
+            {
+                MakeShoot(actualPlayer);
+                actualPlayer = _controller.NextPlayer(_controller.Firstplayer);
+            }*/
         }
 
         private void DrawShips(Player player)
@@ -84,7 +88,7 @@ namespace NationalInstruments.Torpedo.View
                 {
                     foreach (Coordinate coordinate in ship.Positions)
                     {
-                        if (button.Name == coordinate.ToString())
+                        if (button.Name.Substring(1) == coordinate.ToString())
                         { button.Background = new SolidColorBrush(Colors.Green); }
                     }
                 }
@@ -95,12 +99,13 @@ namespace NationalInstruments.Torpedo.View
         {
             foreach (Button button in grid.Children)
             {
-                button.Background = null;
+                button.Background = new SolidColorBrush(Colors.Wheat);
             }
         }
 
         private void ShipPlacement(Player player)
         {
+            MessageBox.Show("Kérlek add át az egeret "+player.Name+" játékosnak!", "Hajólehelyezés", MessageBoxButton.OK, MessageBoxImage.Information);
             HideShips(PlayerOneBoard);
             EnemyBoard.Visibility = Visibility.Hidden;
             PlayerOneBoard.Margin = new Thickness(0, 0, 0, 0);
@@ -143,6 +148,52 @@ namespace NationalInstruments.Torpedo.View
             }
         }
 
+        private void SetFielBackGroundToHit(Grid grid)
+        {
+            foreach (Button button in grid.Children)
+            {
+                if (_coordinate.ToString() == button.Name.Substring(1))
+                {
+                    button.Background = new SolidColorBrush(Colors.Red);
+                }
+            }
+        }
+
+        private void SetFielBackGroundToTaken(Grid grid)
+        {
+            foreach (Button button in grid.Children)
+            {
+                if (_coordinate.ToString() == button.Name.Substring(1))
+                {
+                    button.Background = new SolidColorBrush(Colors.Gray);
+                }
+            }
+        }
+
+        private void MakeShoot(Player player)
+        {
+            //szerintem ez a szűrő nem lesz jó
+            if (!player.Shoots.Contains(_coordinate))
+            {
+                player.Shoots.Add(_coordinate);
+                if (_controller.IsHit(player, _coordinate))
+                {
+                    if (_clickedButtonName[0] == 'A')
+                    {
+                        SetFielBackGroundToHit(PlayerOneBoard);
+                    }
+                    else { SetFielBackGroundToHit(EnemyBoard); }
+                }
+                else
+                {
+                    if (_clickedButtonName[0] == 'A')
+                    {
+                        SetFielBackGroundToTaken(PlayerOneBoard);
+                    }
+                    else { SetFielBackGroundToTaken(EnemyBoard); }
+                }
+            }
+        }
 
         private void SetSize(object sender, RoutedEventArgs e)
         {
