@@ -12,6 +12,7 @@ namespace NationalInstruments.Torpedo.View
     /// </summary>
     public partial class GamePlay : Window
     {
+        private Player _actualPlayer;
         private GameController _controller;
         private GameMode _gameMode;
         private string _clickedButtonName = string.Empty;
@@ -24,6 +25,7 @@ namespace NationalInstruments.Torpedo.View
         {
             InitializeComponent();
             _controller = new GameController(gameMode, playerOneName, playerTwoName);
+            _actualPlayer = _controller.Firstplayer;
             _gameMode = gameMode;
             if (!_isFirstPlayerShipsPlanted)
             {
@@ -68,16 +70,13 @@ namespace NationalInstruments.Torpedo.View
             }
             else
             {
-                MakeShoot(_controller.Firstplayer);
+                if (!_controller.IsGameOver(_controller.NextPlayer(_actualPlayer)))
+                {
+                    MakeShoot(_actualPlayer);
+                    _actualPlayer = _controller.NextPlayer(_actualPlayer);
+                    title.Content = "Te következel " + _actualPlayer.Name + "!";
+                }
             }
-
-            /*
-            Player actualPlayer = _controller.Firstplayer;
-            if (!_controller.IsGameOver(_controller.NextPlayer(actualPlayer)))
-            {
-                MakeShoot(actualPlayer);
-                actualPlayer = _controller.NextPlayer(_controller.Firstplayer);
-            }*/
         }
 
         private void DrawShips(Player player)
@@ -105,8 +104,10 @@ namespace NationalInstruments.Torpedo.View
 
         private void ShipPlacement(Player player)
         {
-            MessageBox.Show("Kérlek add át az egeret "+player.Name+" játékosnak!", "Hajólehelyezés", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Kérlek add át az egeret " + player.Name + " játékosnak!", "Hajólehelyezés", MessageBoxButton.OK, MessageBoxImage.Information);
             HideShips(PlayerOneBoard);
+            firstPlayerName.Visibility = Visibility.Hidden;
+            secondPlayerName.Visibility = Visibility.Hidden;
             EnemyBoard.Visibility = Visibility.Hidden;
             PlayerOneBoard.Margin = new Thickness(0, 0, 0, 0);
             title.Content = "Kérlek " + player.Name + "  rakd le a hajókat!";
@@ -126,8 +127,16 @@ namespace NationalInstruments.Torpedo.View
                 fourLong.Visibility = Visibility.Hidden;
                 fiveLong.Visibility = Visibility.Hidden;
                 alignmentButton.Visibility = Visibility.Hidden;
-
+                firstPlayerName.Visibility = Visibility.Visible;
+                secondPlayerName.Visibility = Visibility.Visible;
+                firstPlayerName.Content = _controller.Firstplayer.Name + " táblája";
+                secondPlayerName.Content = _controller.SecondPlayer.Name + " táblája";
+                roundCount.Content = "Körök száma: " + _controller.Match.NumberOfRounds;
                 title.Content = "Te következel " + _controller.Firstplayer.Name + "!";
+                hitPlayerOne.Content = _controller.Firstplayer.Name + " találatainak száma: " + _controller.Firstplayer.HitCount;
+                hitPlayerTwo.Content = _controller.SecondPlayer.Name + " találatainak száma: " + _controller.SecondPlayer.HitCount;
+                deadShipPlayerOne.Content = _controller.Firstplayer.Name + " elsüllyedt hajóinak száma: " + _controller.Firstplayer.NumberOfDeadShips;
+                deadShipPlayerTwo.Content = _controller.SecondPlayer.Name + " elsüllyedt hajóinak száma: " + _controller.SecondPlayer.NumberOfDeadShips;
                 DisableBoard(PlayerOneBoard);
             }
         }
@@ -144,11 +153,11 @@ namespace NationalInstruments.Torpedo.View
         {
             foreach (Button button in grid.Children)
             {
-                button.IsEnabled = false;
+                button.IsEnabled = true;
             }
         }
 
-        private void SetFielBackGroundToHit(Grid grid)
+        private void SetFieldBackGroundToHit(Grid grid)
         {
             foreach (Button button in grid.Children)
             {
@@ -159,7 +168,7 @@ namespace NationalInstruments.Torpedo.View
             }
         }
 
-        private void SetFielBackGroundToTaken(Grid grid)
+        private void SetFieldBackGroundToTaken(Grid grid)
         {
             foreach (Button button in grid.Children)
             {
@@ -172,25 +181,46 @@ namespace NationalInstruments.Torpedo.View
 
         private void MakeShoot(Player player)
         {
-            //szerintem ez a szűrő nem lesz jó
             if (!player.Shoots.Contains(_coordinate))
             {
                 player.Shoots.Add(_coordinate);
                 if (_controller.IsHit(player, _coordinate))
                 {
+                    player.HitCount++;
+                    _actualPlayer = _controller.NextPlayer(_actualPlayer);
                     if (_clickedButtonName[0] == 'A')
                     {
-                        SetFielBackGroundToHit(PlayerOneBoard);
+                        SetFieldBackGroundToHit(PlayerOneBoard);
                     }
-                    else { SetFielBackGroundToHit(EnemyBoard); }
+                    else
+                    {
+                        SetFieldBackGroundToHit(EnemyBoard);
+                    }
                 }
                 else
                 {
+                    if (_actualPlayer.Name == _controller.SecondPlayer.Name)
+                    {
+                        _controller.Match.NumberOfRounds++;
+                        roundCount.Content = _controller.Match.NumberOfRounds;
+                    }
                     if (_clickedButtonName[0] == 'A')
                     {
-                        SetFielBackGroundToTaken(PlayerOneBoard);
+                        SetFieldBackGroundToTaken(PlayerOneBoard);
+                        DisableBoard(PlayerOneBoard);
+                        ActivateBoard(EnemyBoard);
                     }
-                    else { SetFielBackGroundToTaken(EnemyBoard); }
+                    else
+                    {
+                        SetFieldBackGroundToTaken(EnemyBoard);
+                        DisableBoard(EnemyBoard);
+                        ActivateBoard(PlayerOneBoard);
+                    }
+                    MessageBox.Show("Kérlek add át az egeret " + _actualPlayer.Name + " játékosnak!", "Játékos váltás", MessageBoxButton.OK, MessageBoxImage.Information);
+                    hitPlayerOne.Content = _controller.Firstplayer.Name + " találatainak száma: " + _controller.Firstplayer.HitCount;
+                    hitPlayerTwo.Content = _controller.SecondPlayer.Name + " találatainak száma: " + _controller.SecondPlayer.HitCount;
+                    deadShipPlayerOne.Content = _controller.Firstplayer.Name + " elsüllyedt hajóinak száma: " + _controller.Firstplayer.NumberOfDeadShips;
+                    deadShipPlayerTwo.Content = _controller.SecondPlayer.Name + " elsüllyedt hajóinak száma: " + _controller.SecondPlayer.NumberOfDeadShips;
                 }
             }
         }
