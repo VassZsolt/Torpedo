@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Diagnostics.CodeAnalysis;
 
 namespace NationalInstruments.Torpedo.Model
 {
@@ -16,6 +14,8 @@ namespace NationalInstruments.Torpedo.Model
         public int HitCount = 0;
         public int NumberOfDeadShips = 0;
         private List<char> _bannedChars = new List<char>(new char[] { '!', '?', '_', '-', ':', ';', '#', ' ' });
+        public List<int> LivingShips = new List<int> { 1, 2, 3, 4, 5 };
+        public List<int> DeadShips = new List<int>();
 
         public Player(int numberOfShips, int boardSize)
         {

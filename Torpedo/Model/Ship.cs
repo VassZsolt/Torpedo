@@ -17,9 +17,6 @@ namespace NationalInstruments.Torpedo.Model
         public bool Status { get; set; } // false if sunk
         public List<Coordinate> Positions { get; set; } = new List<Coordinate>();
 
-        public Ship()
-        {
-
-        }
+        public Ship() { }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
-using NationalInstruments.Torpedo.Controllers;
 using System.Collections.Generic;
-using NationalInstruments.Torpedo.Model;
 using System.Linq;
+using System.Windows;
+using NationalInstruments.Torpedo.Controllers;
+using NationalInstruments.Torpedo.Model;
+using NationalInstruments.Torpedo.View;
 
 namespace NationalInstruments.Torpedo.ViewModel
 {
@@ -91,6 +93,8 @@ namespace NationalInstruments.Torpedo.ViewModel
                         {
                             ship.Status = false;
                             enemy.NumberOfDeadShips++;
+                            enemy.LivingShips.Remove(ship.ShipSize);
+                            enemy.DeadShips.Add(ship.ShipSize);
                         }
                         return true;
                     }

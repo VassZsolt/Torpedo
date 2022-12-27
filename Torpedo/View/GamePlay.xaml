@@ -242,11 +242,11 @@
         <Label Name="firstPlayerName" Content="Név" HorizontalAlignment="Left" Margin="55,140,0,0" VerticalAlignment="Top"/>
         <Label Name="secondPlayerName" Content="Név2" HorizontalAlignment="Left" Margin="650,140,0,0" VerticalAlignment="Top"/>
         <Label Name="roundCount"  HorizontalAlignment="Center" Margin="0,720,0,0" VerticalAlignment="Top"/>
-        <Label Name="livingShipPlayerOne"  HorizontalAlignment="Left" Margin="120,750,0,0" VerticalAlignment="Top"/>
-        <Label Name="hitPlayerOne"  HorizontalAlignment="Left" Margin="240,700,0,0" VerticalAlignment="Top"/>
-        <Label Name="deadShipPlayerOne"  HorizontalAlignment="Left" Margin="400,700,0,0" VerticalAlignment="Top"/>
-        <Label Name="livingShipPlayerTwo"  HorizontalAlignment="Left" Margin="720,750,0,0" VerticalAlignment="Top"/>
-        <Label Name="hitPlayerTwo"  HorizontalAlignment="Left" Margin="890,700,0,0" VerticalAlignment="Top"/>
-        <Label Name="deadShipPlayerTwo"  HorizontalAlignment="Left" Margin="1000,700,0,0" VerticalAlignment="Top"/>
+        <Label Name="hitPlayerOne"  HorizontalAlignment="Left" Margin="250,680,0,0" VerticalAlignment="Top"/>
+        <Label Name="livingShipPlayerOne"  HorizontalAlignment="Left" Margin="100,700,0,0" VerticalAlignment="Top"/>
+        <Label Name="deadShipPlayerOne"  HorizontalAlignment="Left" Margin="300,700,0,0" VerticalAlignment="Top"/>
+        <Label Name="hitPlayerTwo"  HorizontalAlignment="Left" Margin="850,680,0,0" VerticalAlignment="Top"/>
+        <Label Name="livingShipPlayerTwo"  HorizontalAlignment="Left" Margin="700,700,0,0" VerticalAlignment="Top"/>
+        <Label Name="deadShipPlayerTwo"  HorizontalAlignment="Left" Margin="900,700,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

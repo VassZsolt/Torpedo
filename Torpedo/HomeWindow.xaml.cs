@@ -11,7 +11,6 @@ namespace NationalInstruments.Torpedo
         public MainWindow()
         {
             InitializeComponent();
-            //GameController game = new GameController(GameMode.TwoPlayerMode);
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)

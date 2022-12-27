@@ -17,8 +17,8 @@ namespace NationalInstruments.Torpedo.Model
         public void SetFirstPlayerName(string name) => _firstPlayerName = name;
 
         public int NumberOfRounds { get; set; }
-        public List<Coordinate> player1Shoots = new List<Coordinate>();
-        public List<Coordinate> player2Shoots = new List<Coordinate>();
+        public List<Coordinate> Player1Shoots = new List<Coordinate>();
+        public List<Coordinate> Player2Shoots = new List<Coordinate>();
         private string _winner = string.Empty;
         public List<Coordinate> __matchHistory = new List<Coordinate>();
 
@@ -35,11 +35,11 @@ namespace NationalInstruments.Torpedo.Model
         {
             if (player.Name == _playerName1)
             {
-                player1Shoots.Add(coordinate);
+                Player1Shoots.Add(coordinate);
             }
             else
             {
-                player2Shoots.Add(coordinate);
+                Player2Shoots.Add(coordinate);
             }
         }
     }
