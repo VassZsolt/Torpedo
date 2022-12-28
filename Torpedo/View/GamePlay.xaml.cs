@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -25,15 +27,18 @@ namespace NationalInstruments.Torpedo.View
         private string _secondPlayerLivingShips;
         private string _firstPlayerDeadShips;
         private string _secondPlayerDeadShips;
+
+        #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public GamePlay(GameMode gameMode, string playerOneName, string? playerTwoName)
+        #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             InitializeComponent();
             _controller = new GameController(gameMode, playerOneName, playerTwoName);
-            _actualPlayer = _controller.Firstplayer;
+            _actualPlayer = _controller.FirstPlayer;
             _gameMode = gameMode;
             if (!_isFirstPlayerShipsPlanted)
             {
-                ShipPlacement(_controller.Firstplayer);
+                ShipPlacement(_controller.FirstPlayer);
             }
         }
 
@@ -44,12 +49,12 @@ namespace NationalInstruments.Torpedo.View
             _coordinate = _controller.GetCoordinate(_clickedButtonName);
             if (!_isFirstPlayerShipsPlanted)
             {
-                if (_controller.Firstplayer.Ships.Count < 5)
+                if (_controller.FirstPlayer.Ships.Count < 5)
                 {
-                    _controller.PlaceShip(_ship.ShipSize, _ship.ShipAlignment, _coordinate, _controller.Firstplayer);
-                    DrawShips(_controller.Firstplayer);
+                    _controller.PlaceShip(_ship.ShipSize, _ship.ShipAlignment, _coordinate, _controller.FirstPlayer);
+                    DrawShips(_controller.FirstPlayer);
                 }
-                if (_controller.Firstplayer.Ships.Count == 5)
+                if (_controller.FirstPlayer.Ships.Count == 5)
                 {
                     _isFirstPlayerShipsPlanted = true;
                     ShipPlacement(_controller.SecondPlayer);
@@ -74,6 +79,14 @@ namespace NationalInstruments.Torpedo.View
             }
             else
             {
+                foreach (Coordinate coordinate in _actualPlayer.Shoots)
+                {
+                    if (coordinate.Column == _coordinate.Column && coordinate.Row == _coordinate.Row)
+                    {
+                        return;
+                    }
+                }
+
                 if (!_controller.IsGameOver(_controller.NextPlayer(_actualPlayer)))
                 {
                     MakeShoot(_actualPlayer);
@@ -135,16 +148,16 @@ namespace NationalInstruments.Torpedo.View
                 alignmentButton.Visibility = Visibility.Hidden;
                 firstPlayerName.Visibility = Visibility.Visible;
                 secondPlayerName.Visibility = Visibility.Visible;
-                firstPlayerName.Content = _controller.Firstplayer.Name + " táblája";
+                firstPlayerName.Content = _controller.FirstPlayer.Name + " táblája";
                 secondPlayerName.Content = _controller.SecondPlayer.Name + " táblája";
                 roundCount.Content = "Körök száma: " + _controller.Match.NumberOfRounds;
-                title.Content = "Te következel " + _controller.Firstplayer.Name + "!";
-                hitPlayerOne.Content = _controller.Firstplayer.Name + " találatainak száma: " + _controller.Firstplayer.HitCount;
+                title.Content = "Te következel " + _controller.FirstPlayer.Name + "!";
+                hitPlayerOne.Content = _controller.FirstPlayer.Name + " találatainak száma: " + _controller.FirstPlayer.HitCount;
                 hitPlayerTwo.Content = _controller.SecondPlayer.Name + " találatainak száma: " + _controller.SecondPlayer.HitCount;
                 SetStatisticVariable();
-                livingShipPlayerOne.Content = $"{_controller.Firstplayer.Name} meglévő hajói: {_firstPlayerLivingShips}";
+                livingShipPlayerOne.Content = $"{_controller.FirstPlayer.Name} meglévő hajói: {_firstPlayerLivingShips}";
                 livingShipPlayerTwo.Content = $"{_controller.SecondPlayer.Name} meglévő hajói: {_secondPlayerLivingShips}";
-                deadShipPlayerOne.Content = $"{_controller.Firstplayer.Name} elsüllyedt hajói: {_firstPlayerDeadShips}";
+                deadShipPlayerOne.Content = $"{_controller.FirstPlayer.Name} elsüllyedt hajói: {_firstPlayerDeadShips}";
                 deadShipPlayerTwo.Content = $"{_controller.SecondPlayer.Name} elsüllyedt hajói: {_secondPlayerDeadShips}";
                 DisableBoard(PlayerOneBoard);
             }
@@ -181,6 +194,19 @@ namespace NationalInstruments.Torpedo.View
                 var mainWindow = new MainWindow();
                 mainWindow.Show();
                 Close();
+
+                _controller.Match.AddWinner(_controller.NextPlayer(_actualPlayer).Name);
+                foreach (int size in _controller.NextPlayer(_actualPlayer).LivingShips)
+                {
+                    _controller.Match.AddWinnerShip(_controller.NextPlayer(_actualPlayer), size);
+                }
+                MyFileHandler jsonFile = new MyFileHandler();
+                List<Result> result() => new()
+                {
+                    new(_controller.FirstPlayer.Name, _controller.SecondPlayer.Name, _controller.NextPlayer(_actualPlayer).Name, _controller.Match.NumberOfRounds)
+                };
+                var data = result();
+                jsonFile.PrettyWrite(data);
             }
         }
 
@@ -212,12 +238,12 @@ namespace NationalInstruments.Torpedo.View
                     {
                         SetFieldBackGroundToHit(EnemyBoard);
                     }
-                    hitPlayerOne.Content = _controller.Firstplayer.Name + " találatainak száma: " + _controller.Firstplayer.HitCount;
+                    hitPlayerOne.Content = _controller.FirstPlayer.Name + " találatainak száma: " + _controller.FirstPlayer.HitCount;
                     hitPlayerTwo.Content = _controller.SecondPlayer.Name + " találatainak száma: " + _controller.SecondPlayer.HitCount;
                     SetStatisticVariable();
-                    livingShipPlayerOne.Content = $"{_controller.Firstplayer.Name} meglévő hajói: {_firstPlayerLivingShips}";
+                    livingShipPlayerOne.Content = $"{_controller.FirstPlayer.Name} meglévő hajói: {_firstPlayerLivingShips}";
                     livingShipPlayerTwo.Content = $"{_controller.SecondPlayer.Name} meglévő hajói: {_secondPlayerLivingShips}";
-                    deadShipPlayerOne.Content = $"{_controller.Firstplayer.Name} elsüllyedt hajói: {_firstPlayerDeadShips}";
+                    deadShipPlayerOne.Content = $"{_controller.FirstPlayer.Name} elsüllyedt hajói: {_firstPlayerDeadShips}";
                     deadShipPlayerTwo.Content = $"{_controller.SecondPlayer.Name} elsüllyedt hajói: {_secondPlayerDeadShips}";
                 }
                 else
@@ -225,7 +251,7 @@ namespace NationalInstruments.Torpedo.View
                     if (_actualPlayer.Name == _controller.SecondPlayer.Name)
                     {
                         _controller.Match.NumberOfRounds++;
-                        roundCount.Content = _controller.Match.NumberOfRounds;
+                        roundCount.Content = "Körök száma: " + _controller.Match.NumberOfRounds;
                     }
                     if (_clickedButtonName[0] == 'A')
                     {
@@ -288,7 +314,7 @@ namespace NationalInstruments.Torpedo.View
             _firstPlayerDeadShips = " ";
             _secondPlayerLivingShips = " ";
             _secondPlayerDeadShips = " ";
-            foreach (var ship in _controller.Firstplayer.LivingShips)
+            foreach (var ship in _controller.FirstPlayer.LivingShips)
             {
                 _firstPlayerLivingShips += $" {ship}, ";
             }
@@ -296,7 +322,7 @@ namespace NationalInstruments.Torpedo.View
             {
                 _secondPlayerLivingShips += $" {ship}, ";
             }
-            foreach (var ship in _controller.Firstplayer.DeadShips)
+            foreach (var ship in _controller.FirstPlayer.DeadShips)
             {
                 _firstPlayerDeadShips += $" {ship}, ";
             }

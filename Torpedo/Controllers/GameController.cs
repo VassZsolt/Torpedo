@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using NationalInstruments.Torpedo.Controllers;
 using NationalInstruments.Torpedo.Model;
 using NationalInstruments.Torpedo.View;
@@ -13,7 +14,7 @@ namespace NationalInstruments.Torpedo.ViewModel
     /// </summary>
     internal class GameController
     {
-        public Player Firstplayer;
+        public Player FirstPlayer;
         public Player SecondPlayer;
         private Random _random = new Random();
 
@@ -26,9 +27,13 @@ namespace NationalInstruments.Torpedo.ViewModel
         private ShipPlacementController _shipPlacementController = new ShipPlacementController(_sizeOfBoard);
         public Match Match;
 
+        #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public GameController(GameMode gameMode, string playerOneName, string? playerTwoName)
+        #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             _gameMode = gameMode;
+            FirstPlayer = _player1;
+            SecondPlayer = _player2;
             CreatePlayers(playerOneName, playerTwoName);
         }
         private void CreatePlayers(string playerOneName, string? playerTwoName)
@@ -39,7 +44,9 @@ namespace NationalInstruments.Torpedo.ViewModel
             if (_gameMode == GameMode.TwoPlayerMode)
             {
                 _player2 = new Player(_numberOfShips, _sizeOfBoard);
+                #pragma warning disable CS8601 // Possible null reference assignment.
                 _player2.Name = playerTwoName;
+                #pragma warning restore CS8601 // Possible null reference assignment.
             }
             else
             {
@@ -52,26 +59,26 @@ namespace NationalInstruments.Torpedo.ViewModel
         {
             if (_random.Next(2) == 0)
             {
-                Firstplayer = _player1;
+                FirstPlayer = _player1;
                 SecondPlayer = _player2;
                 Match.SetFirstPlayerName(_player1.Name);
             }
             else
             {
-                Firstplayer = _player2;
+                FirstPlayer = _player2;
                 SecondPlayer = _player1;
                 Match.SetFirstPlayerName(_player2.Name);
             }
         }
         public Player NextPlayer(Player player)
         {
-            if (player == Firstplayer)
+            if (player == FirstPlayer)
             {
                 return SecondPlayer;
             }
             else
             {
-                return Firstplayer;
+                return FirstPlayer;
             }
         }
         public bool IsHit(Player player, Coordinate target)
@@ -154,7 +161,10 @@ namespace NationalInstruments.Torpedo.ViewModel
 
         public void PlaceShip(int shipSize, Alignment align, Coordinate startPosition, Player player)
         {
-            if (shipSize == 0) { return; }
+            if (shipSize == 0)
+            {
+                return;
+            }
             _shipPlacementController.SizeOfShip = shipSize;
             _shipPlacementController.SetAlignment(align);
             _shipPlacementController.SetStartPosition(startPosition);
@@ -223,7 +233,10 @@ namespace NationalInstruments.Torpedo.ViewModel
                 column = Column.J;
             }
             string row = buttonName.Substring(2);
-            return new Coordinate(column, row: Convert.ToInt32(row));
+            #pragma warning disable CA1305 // Specify IFormatProvider
+            int x = int.Parse(row);
+            #pragma warning restore CA1305 // Specify IFormatProvider
+            return new Coordinate(column, x);
         }
     }
 }

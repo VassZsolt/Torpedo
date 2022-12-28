@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace NationalInstruments.Torpedo.Model
 {
@@ -8,8 +7,6 @@ namespace NationalInstruments.Torpedo.Model
     /// </summary>
     public class Ship
     {
-        private List<Coordinate> positions;
-
         public int ShipSize { get; set; }
         public Alignment ShipAlignment { get; set; }
 
