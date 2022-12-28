@@ -6,10 +6,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Name="onePlayerModeButton" Content="Egy játékos" HorizontalAlignment="Center"  Margin="0,150,0,0" Width="64" Height="25" VerticalAlignment="Top" Click="onePlayerModeButton_Click"/>
-        <Button Name="twoPlayerModeButton" Content="Két játékos" HorizontalAlignment="Center"  Margin="0,200,0,0" Width="64" Height="25" VerticalAlignment="Top" Click="twoPlayerModeButton_Click"/>
         <Label Content="Torpedó" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <Button Name="exitButton" Content="Kilépés" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Click="exitButton_Click"/>
+        <Button Name="onePlayerModeButton" Content="Egy játékos" HorizontalAlignment="Center"  Margin="0,150,0,0" Width="120" Height="25" VerticalAlignment="Top" Click="OnePlayerModeButton_Click"/>
+        <Button Name="twoPlayerModeButton" Content="Két játékos" HorizontalAlignment="Center"  Margin="0,200,0,0" Width="120" Height="25" VerticalAlignment="Top" Click="TwoPlayerModeButton_Click"/>
+        <Button Name="resultsButton" Content="Korábbi eredmények" HorizontalAlignment="Center"  Margin="0,250,0,0" Width="120" Height="25" VerticalAlignment="Top" Click="ResultButton_Click"/>
+        <Button Name="exitButton" Content="Kilépés" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Click="ExitButton_Click"/>
 
     </Grid>
 </Window>

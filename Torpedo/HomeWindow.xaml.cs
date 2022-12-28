@@ -1,5 +1,5 @@
-﻿using NationalInstruments.Torpedo.View;
-using System.Windows;
+﻿using System.Windows;
+using NationalInstruments.Torpedo.View;
 
 namespace NationalInstruments.Torpedo
 {
@@ -13,12 +13,12 @@ namespace NationalInstruments.Torpedo
             InitializeComponent();
         }
 
-        private void exitButton_Click(object sender, RoutedEventArgs e)
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        private void onePlayerModeButton_Click(object sender, RoutedEventArgs e)
+        private void OnePlayerModeButton_Click(object sender, RoutedEventArgs e)
         {
             var playerName = new PlayerName();
             playerName.secondPlayerLabel.Visibility = Visibility.Hidden;
@@ -27,10 +27,17 @@ namespace NationalInstruments.Torpedo
             Close();
         }
 
-        private void twoPlayerModeButton_Click(object sender, RoutedEventArgs e)
+        private void TwoPlayerModeButton_Click(object sender, RoutedEventArgs e)
         {
             var playerName = new PlayerName();
             playerName.Show();
+            Close();
+        }
+
+        private void ResultButton_Click(object sender, RoutedEventArgs e)
+        {
+            var results = new Results();
+            results.Show();
             Close();
         }
     }
