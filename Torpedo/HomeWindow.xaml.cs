@@ -20,10 +20,8 @@ namespace NationalInstruments.Torpedo
 
         private void OnePlayerModeButton_Click(object sender, RoutedEventArgs e)
         {
-            var playerName = new PlayerName();
-            playerName.secondPlayerLabel.Visibility = Visibility.Hidden;
-            playerName.secondPlayerName.Visibility = Visibility.Hidden;
-            playerName.Show();
+            var onePlayer = new OnePlayer();
+            onePlayer.Show();
             Close();
         }
 

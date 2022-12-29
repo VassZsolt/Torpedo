@@ -8,8 +8,10 @@
         Title="OnePlayer" Height="450" Width="800">
     <Grid>
         <Label Content="Egy játékos mód" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox Name="playerName" HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap" Text="Név:" VerticalAlignment="Top" Width="120"/>
-        <Button Name="startButton" Content="Kezdés" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top"/>
-        <Button Name="backButton" Content="Vissza" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Click="backButton_Click"/>
+        <Label Name="firstPlayerLabel" Content="Első játékos:" HorizontalAlignment="Left" Margin="215,139,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="playerName" HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Height="25.96" TextChanged="PlayerName_TextChanged"/>
+        <Label Name="wrongName" HorizontalAlignment="Left" Margin="510,139,0,0" VerticalAlignment="Top"/>
+        <Button Name="startButton" Content="Kezdés" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Click="StartButton_Click"/>
+        <Button Name="backButton" Content="Vissza" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Click="BackButton_Click"/>
     </Grid>
 </Window>

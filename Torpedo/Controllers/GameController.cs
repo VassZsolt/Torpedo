@@ -50,7 +50,10 @@ namespace NationalInstruments.Torpedo.ViewModel
             }
             else
             {
-                // TODO __Dede Zsolt__ Create an AI
+                _player2 = new Player(_numberOfShips, _sizeOfBoard);
+                #pragma warning disable CS8601 // Possible null reference assignment.
+                _player2.Name = playerTwoName;
+                #pragma warning restore CS8601 // Possible null reference assignment.
             }
             Match = new Match(_player1, _player2);
             ChooseFirstPlayer();
