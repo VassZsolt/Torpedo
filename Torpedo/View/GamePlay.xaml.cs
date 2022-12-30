@@ -240,11 +240,11 @@ namespace NationalInstruments.Torpedo.View
                     _controller.Match.AddWinnerShip(_controller.NextPlayer(_actualPlayer), size);
                 }
                 MyFileHandler jsonFile = new MyFileHandler();
-                List<Result> result() => new()
+                List<Result> Result() => new()
                 {
                     new(_controller.FirstPlayer.Name, _controller.SecondPlayer.Name, _controller.NextPlayer(_actualPlayer).Name, _controller.Match.NumberOfRounds)
                 };
-                var data = result();
+                var data = Result();
                 jsonFile.PrettyWrite(data);
             }
         }
@@ -355,7 +355,8 @@ namespace NationalInstruments.Torpedo.View
                             DisableBoard(EnemyBoard);
                             ActivateBoard(PlayerOneBoard);
                             MessageBox.Show("A Bot következik!", "Játékos váltás", MessageBoxButton.OK, MessageBoxImage.Information);
-                            _controller.AiTurn();
+                            _coordinate = _controller.AiShoot(_actualPlayer);
+                            MakeShoot(_actualPlayer);
                         }
                     }
                 }

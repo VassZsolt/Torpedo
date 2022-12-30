@@ -243,20 +243,8 @@ namespace NationalInstruments.Torpedo.ViewModel
             return new Coordinate(column, x);
         }
 
-
-        public void AiPlaceShip(int shipSize, Player player)
+        private Coordinate RandomCoordinate()
         {
-            Alignment align;
-
-            int alignment = _random.Next(2);
-            if (alignment == 0)
-            {
-                align = Alignment.Vertical;
-            }
-            else
-            {
-                align = Alignment.Horizontal;
-            }
 
             int row = _random.Next(10);
             int col = _random.Next(10) + 1;
@@ -303,13 +291,38 @@ namespace NationalInstruments.Torpedo.ViewModel
                 column = Column.J;
             }
 
-            Coordinate startPosition = new Coordinate(column, row);
+            return new Coordinate(column, row);
+
+
+        }
+
+        public void AiPlaceShip(int shipSize, Player player)
+        {
+            Alignment align;
+
+            int alignment = _random.Next(2);
+            if (alignment == 0)
+            {
+                align = Alignment.Vertical;
+            }
+            else
+            {
+                align = Alignment.Horizontal;
+            }
+
+            Coordinate startPosition = RandomCoordinate();
             PlaceShip(shipSize, align, startPosition, player);
         }
 
-        public void AiTurn()
+        public Coordinate AiShoot(Player player)
         {
+            Coordinate coordinate = RandomCoordinate();
 
+            while (player.Shoots.Contains(coordinate))
+            {
+                coordinate = RandomCoordinate();
+            }
+            return coordinate;
         }
     }
 }
