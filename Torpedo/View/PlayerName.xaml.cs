@@ -55,16 +55,8 @@ namespace NationalInstruments.Torpedo.View
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             PlayerNameOne = firstPlayerName.Text;
-            if (secondPlayerName.Text.Length == 0)
-            {
-                GameMode = GameMode.SinglePlayerMode;
-            }
-            else
-            {
-                PlayerNameTwo = secondPlayerName.Text;
-                GameMode = GameMode.TwoPlayerMode;
-            }
-
+            PlayerNameTwo = secondPlayerName.Text;
+            GameMode = GameMode.TwoPlayerMode;
             var gamePlay = new GamePlay(GameMode, PlayerNameOne, PlayerNameTwo);
             gamePlay.Show();
             Close();

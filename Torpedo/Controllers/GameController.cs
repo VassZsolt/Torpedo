@@ -41,36 +41,37 @@ namespace NationalInstruments.Torpedo.ViewModel
             _player1 = new Player(_numberOfShips, _sizeOfBoard);
             _player1.Name = playerOneName;
 
-            if (_gameMode == GameMode.TwoPlayerMode)
-            {
-                _player2 = new Player(_numberOfShips, _sizeOfBoard);
-                #pragma warning disable CS8601 // Possible null reference assignment.
-                _player2.Name = playerTwoName;
-                #pragma warning restore CS8601 // Possible null reference assignment.
-            }
-            else
-            {
-                _player2 = new Player(_numberOfShips, _sizeOfBoard);
-                #pragma warning disable CS8601 // Possible null reference assignment.
-                _player2.Name = playerTwoName;
-                #pragma warning restore CS8601 // Possible null reference assignment.
-            }
+            _player2 = new Player(_numberOfShips, _sizeOfBoard);
+            #pragma warning disable CS8601 // Possible null reference assignment.
+            _player2.Name = playerTwoName;
+            #pragma warning restore CS8601 // Possible null reference assignment.
+
             Match = new Match(_player1, _player2);
+
             ChooseFirstPlayer();
         }
         public void ChooseFirstPlayer()
         {
-            if (_random.Next(2) == 0)
+            if (_gameMode == GameMode.TwoPlayerMode)
+            {
+                if (_random.Next(2) == 0)
+                {
+                    FirstPlayer = _player1;
+                    SecondPlayer = _player2;
+                    Match.SetFirstPlayerName(_player1.Name);
+                }
+                else
+                {
+                    FirstPlayer = _player2;
+                    SecondPlayer = _player1;
+                    Match.SetFirstPlayerName(_player2.Name);
+                }
+            }
+            else
             {
                 FirstPlayer = _player1;
                 SecondPlayer = _player2;
                 Match.SetFirstPlayerName(_player1.Name);
-            }
-            else
-            {
-                FirstPlayer = _player2;
-                SecondPlayer = _player1;
-                Match.SetFirstPlayerName(_player2.Name);
             }
         }
         public Player NextPlayer(Player player)
@@ -240,6 +241,75 @@ namespace NationalInstruments.Torpedo.ViewModel
             int x = int.Parse(row);
             #pragma warning restore CA1305 // Specify IFormatProvider
             return new Coordinate(column, x);
+        }
+
+
+        public void AiPlaceShip(int shipSize, Player player)
+        {
+            Alignment align;
+
+            int alignment = _random.Next(2);
+            if (alignment == 0)
+            {
+                align = Alignment.Vertical;
+            }
+            else
+            {
+                align = Alignment.Horizontal;
+            }
+
+            int row = _random.Next(10);
+            int col = _random.Next(10) + 1;
+
+            Column column;
+            if (col == 1)
+            {
+                column = Column.A;
+            }
+            else if (col == 2)
+            {
+                column = Column.B;
+            }
+            else if (col == 3)
+            {
+                column = Column.C;
+            }
+            else if (col == 4)
+            {
+                column = Column.D;
+            }
+            else if (col == 5)
+            {
+                column = Column.E;
+            }
+            else if (col == 6)
+            {
+                column = Column.F;
+            }
+            else if (col == 7)
+            {
+                column = Column.G;
+            }
+            else if (col == 8)
+            {
+                column = Column.H;
+            }
+            else if (col == 9)
+            {
+                column = Column.I;
+            }
+            else
+            {
+                column = Column.J;
+            }
+
+            Coordinate startPosition = new Coordinate(column, row);
+            PlaceShip(shipSize, align, startPosition, player);
+        }
+
+        public void AiTurn()
+        {
+
         }
     }
 }

@@ -12,7 +12,7 @@ namespace NationalInstruments.Torpedo.View
     public partial class OnePlayer : Window
     {
         public string PlayerNameOne = string.Empty;
-        public string PlayerNameTwo = "Bot";
+        public string PlayerNameTwo = ".Bot";
         private Player player = new Player(0, 0);
         public GameMode GameMode;
         public OnePlayer()

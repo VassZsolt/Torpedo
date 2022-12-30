@@ -239,6 +239,7 @@
         <Button Name="twoLong" Content="2 egység hosszú" HorizontalAlignment="Left" Margin="720,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
         <Button Name="oneLong" Content="1 egység hosszú" HorizontalAlignment="Left" Margin="870,70,0,0" VerticalAlignment="Top" Click="SetSize"/>
         <Button Name="alignmentButton" Content="Horizontális" HorizontalAlignment="Left" Margin="545,100,0,0" VerticalAlignment="Top" Width="100" Click="AlignmentChange"/>
+        <Button Name="gameStartButton" Content="Játék indítása" HorizontalAlignment="Left" Margin="545,100,0,0" VerticalAlignment="Top" Width="100" Visibility ="Hidden"  Click="StartAiGame"/>
         <Label Name="firstPlayerName" Content="Név" HorizontalAlignment="Left" Margin="55,140,0,0" VerticalAlignment="Top"/>
         <Label Name="secondPlayerName" Content="Név2" HorizontalAlignment="Left" Margin="650,140,0,0" VerticalAlignment="Top"/>
         <Label Name="roundCount"  HorizontalAlignment="Center" Margin="0,720,0,0" VerticalAlignment="Top"/>
